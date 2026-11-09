@@ -1,0 +1,95 @@
+# Saatlik AH veri toplama (EU Forever, PvP Horde, ev 113) — kişisel veri YOK (AHBOT_PUBLIC=1).
+# Kalıcılık: ahbot.sqlite → actions/cache (gzip); boşsa "seed" Release dosyası.
+# Çıktılar (analyst.sqlite, latest.md, hourly/, günlük özetler) → orphan "data" dalı, her çalışmada tek commit (force-push).
+name: hourly
+
+on:
+  schedule:
+    - cron: "20 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: hourly
+  cancel-in-progress: false
+
+permissions:
+  contents: write   # data dalına push
+  actions: write    # eski önbellekleri silmek
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      AHBOT_PUBLIC: "1"
+      TZ: Europe/Istanbul
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Veritabanı önbelleği
+        id: dbcache
+        uses: actions/cache/restore@v4
+        with:
+          path: data/ahbot.sqlite.gz
+          key: ahbot-db-${{ github.run_id }}
+          restore-keys: ahbot-db-
+
+      - name: Önbellek yoksa seed indir
+        if: steps.dbcache.outputs.cache-matched-key == ''
+        run: gh release download seed -p ahbot_public.sqlite.gz -D data -R "$GITHUB_REPOSITORY" && mv data/ahbot_public.sqlite.gz data/ahbot.sqlite.gz
+
+      - run: gunzip -f data/ahbot.sqlite.gz
+
+      - name: Önceki data dalını geri yükle (özetler, saatlik raporlar, durum)
+        run: |
+          if git ls-remote --exit-code origin data >/dev/null; then
+            git fetch --depth=1 origin data
+            mkdir -p _prev && git --work-tree=_prev checkout FETCH_HEAD -- . && git reset -q
+            mkdir -p data/summary reports/hourly
+            cp -r _prev/data/summary/. data/summary/ 2>/dev/null || true
+            cp -r _prev/reports/hourly/. reports/hourly/ 2>/dev/null || true
+            cp _prev/data/hourly_state.json data/ 2>/dev/null || true
+          fi
+
+      - name: Toplama
+        env:
+          BLIZZARD_CLIENT_ID: ${{ secrets.BLIZZARD_CLIENT_ID }}
+          BLIZZARD_CLIENT_SECRET: ${{ secrets.BLIZZARD_CLIENT_SECRET }}
+        run: python scripts/hourly.py
+
+      - name: Veritabanını sıkıştır
+        run: gzip -1 -f data/ahbot.sqlite
+
+      - uses: actions/cache/save@v4
+        with:
+          path: data/ahbot.sqlite.gz
+          key: ahbot-db-${{ github.run_id }}
+
+      - name: data dalına yayınla
+        run: |
+          mkdir -p _out/data _out/reports
+          cp data/analyst.sqlite data/analyst_schema.md data/hourly_state.json _out/data/
+          cp -r data/summary _out/data/
+          cp reports/latest.md _out/reports/
+          cp -r reports/hourly _out/reports/
+          cd _out
+          git init -q -b data
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "veri $(date -u +%Y-%m-%dT%H:%MZ) (run ${{ github.run_id }})"
+          git push -q -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" data
+
+      - name: Eski önbellekleri sil (son 3 kalsın)
+        if: always()
+        run: |
+          gh cache list -R "$GITHUB_REPOSITORY" --key ahbot-db- --sort created_at --order desc --limit 100 --json id -q '.[3:][].id' \
+            | xargs -r -n1 gh cache delete -R "$GITHUB_REPOSITORY" || true

@@ -1,0 +1,22 @@
+# AÇIK depo (wow-ah-bot) — İZİN LİSTESİ: her şey yok sayılır, sadece aşağıda açılanlar girer.
+# Kişisel veri (envanter, para, defter, SavedVariables kaynaklı her şey, claude_* raporları, PROGRESS/CLAUDE.md) ASLA buraya girmez;
+# onlar gizli depo (wow-ah-private) içindir: scripts/push_private.py.
+/*
+!/.gitignore
+!/README.md
+!/requirements.txt
+!/.github/
+!/ahbot/
+!/scripts/
+!/prompts/
+!/data/
+/data/*
+!/data/analyst_schema.md
+
+# klasörlerin içinde de
+__pycache__/
+*.pyc
+.env
+*.sqlite
+*.sqlite.gz
+*.lua
