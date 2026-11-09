@@ -1,6 +1,7 @@
 # Saatlik AH veri toplama (EU Forever, PvP Horde, ev 113) — kişisel veri YOK (AHBOT_PUBLIC=1).
 # Kalıcılık: ahbot.sqlite → actions/cache (gzip); boşsa "seed" Release dosyası.
 # Çıktılar (analyst.sqlite, latest.md, hourly/, günlük özetler) → orphan "data" dalı, her çalışmada tek commit (force-push).
+#
 name: hourly
 
 on:
