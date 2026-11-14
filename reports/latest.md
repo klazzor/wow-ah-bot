@@ -1,0 +1,60 @@
+# AH özeti — 15.11.2026 00:31 (ev 113, PvP Horde)
+
+Ayrıntı: `reports/` içindeki own_goods / crafting / disenchant / vendor_snipe raporları. ⚠️ = şüpheli fırsat kuralı, 🐢 = satış < 5/gün (bölge) → önce 1-2 tane ile test et.
+
+## 1. Veri sağlığı
+- items: Sat, 14 Nov 2026 21:19:20 GMT (0.2 sa önce, 165801 ilan) · commodities: Sat, 14 Nov 2026 21:19:20 GMT (0.2 sa önce, 151528 ilan) · tsm_realm: veri 3.2 sa önce, son indirme 21:31 UTC (HTTP 200) · tsm_region: veri 45.3 sa önce, son indirme 17:09 UTC (HTTP 200)
+- ✅ sorun yok
+
+## 3. Fiyat alarmı
+Kriter: bölge satış ≥ 20/gün ve en düşük fiyat ≤ kendi 7 günlük medyanının %70'i.
+
+| Item | Şu an | 7g medyan | Fark | Ucuz adet | Önerilen en fazla | Uyarı |
+|---|---|---|---|---|---|---|
+| Black Diamond | 93c | 19s 90c | -95% | 1027 | 1027 adet (9g 55s 11c) | AH'de aşırı arz (1027 adet ≈ 49 günlük bölge satışı); → önce 1-2 tane ile test et |
+| Waylaid Crate: Artisan Textiles | 3s 90c | 77s 1c | -95% | 363 | 363 adet (14g 15s 70c) | AH'de aşırı arz (475 adet ≈ 21 günlük bölge satışı); → önce 1-2 tane ile test et |
+| Globe of Water | 19s 90c | 2g 88s 86c | -93% | 734 | 734 adet (146g 6s 60c) | AH'de aşırı arz (738 adet ≈ 17 günlük bölge satışı); → önce 1-2 tane ile test et |
+| Lightning Eel | 30c | 3s 50c | -91% | 3103 | 3103 adet (9g 30s 90c) | AH'de aşırı arz (3287 adet ≈ 68 günlük bölge satışı); → önce 1-2 tane ile test et |
+| Jet Black Feather | 1s 93c | 21s 92c | -91% | 97 | 97 adet (1g 87s 21c) |  |
+| Goblin Rocket Fuel | 10s 49c | 1g 13s 39c | -91% | 591 | 591 adet (61g 99s 59c) | AH'de aşırı arz (591 adet ≈ 17 günlük bölge satışı); → önce 1-2 tane ile test et |
+| Rune of Opening | 1c | 9c | -89% | 1178 | 1178 adet (11s 78c) | AH'de aşırı arz (1747 adet ≈ 36 günlük bölge satışı); → önce 1-2 tane ile test et |
+| Scroll of Agility III | 9s 95c | 78s 89c | -87% | 73 | 73 adet (7g 26s 35c) |  |
+| Mountain Silversage | 15s 92c | 1g 18s 0c | -87% | 3363 | 3363 adet (535g 38s 96c) | AH'de aşırı arz (3363 adet ≈ 12 günlük bölge satışı); → önce 1-2 tane ile test et |
+| Indurium Ore | 58c | 3s 98c | -85% | 726 | 726 adet (4g 21s 8c) | AH'de aşırı arz (726 adet ≈ 31 günlük bölge satışı); → önce 1-2 tane ile test et |
+
+(6 aday için yeterli geçmiş yok.)
+
+## 4. Satış zamanlaması
+| Item | En yüksek (yerel saat) | En düşük | Fark |
+|---|---|---|---|
+| Mithril Gyro-Shot | 06–09 | 12–15 | %111 |
+| Jagged Arrow | 18–21 | 00–03 | %55 |
+| Rough Stone | 12–15 | 00–03 | %51 |
+| Solid Shot | 00–03 | 18–21 | %47 |
+| Razor Arrow | 00–03 | 09–12 | %44 |
+| Accurate Slugs | 18–21 | 00–03 | %40 |
+| Feathered Arrow | 18–21 | 06–09 | %35 |
+| Crafted Solid Shot | 06–09 | 18–21 | %34 |
+| Wool Cloth | 12–15 | 03–06 | %34 |
+| Light Leather | 18–21 | 06–09 | %30 |
+
+## 5. Forever'a özel item'lar (son 24 saatte en çok değişen 5)
+Tanım SEZGİSEL: item ID ≥ 200000 (Classic'te olmayan yeni item'lar). Fiyat = adet ağırlıklı alt %10 (en ucuz tek ilandan daha sağlam); en az 5 ilanı olanlar.
+| Item | Önce | Şimdi | Değişim | Aralık | Satış/gün | Uyarı |
+|---|---|---|---|---|---|---|
+| Windstone | 4c | 2s 30c | +5650% | 23 sa | 121.477 | ⚠️ piyasa sıfırlama (reset) şüphesi: > 3× referans 9c (önceki snapshot 9c, 7g medyan 10c, TSM marketValue 9c, TSM avgSalePrice 6c) |
+| Scroll: THAW WORDS | 2s 98c | 75s 0c | +2417% | 23 sa | 40.233 | ⚠️ piyasa sıfırlama (reset) şüphesi: > 3× referans 3s 48c (önceki snapshot 3s 95c, 7g medyan 3s 0c, TSM marketValue 4s 26c, TSM avgSalePrice 3s 0c) |
+| Craftsman's Writ: Ghostweave Vest | 8s 0c | 1g 5s 0c | +1212% | 23 sa | 0 🐢 |  |
+| Scroll: TOPAZ YORAK | 2s 80c | 35s 99c | +1185% | 23 sa | 61.692 | ⚠️ piyasa sıfırlama (reset) şüphesi: > 3× referans 3s 49c (önceki snapshot 3s 98c, 7g medyan 3s 0c, TSM marketValue 4s 57c, TSM avgSalePrice 2s 85c) |
+| Golem Isospring | 55c | 5s 55c | +909% | 23 sa | 113.072 | ⚠️ piyasa sıfırlama (reset) şüphesi: > 3× referans 84c (önceki snapshot 9s 99c, 7g medyan 26c, TSM marketValue 1s 42c, TSM avgSalePrice 21c) |
+
+## 6. Önceki rapora göre değişiklikler
+- 🔔 yeni alarm: Lightning Eel
+- 🔔 yeni alarm: Mountain Silversage
+- 🔕 alarm kalktı: Rugged Hide
+- 🔕 alarm kalktı: Waylaid Crate: Earthly Artisan Herbs
+- 📈📉 Goblin Rocket Fuel: 8s 0c → 10s 49c (+31%)
+- 📈📉 Scroll of Agility III: 7s 85c → 9s 95c (+27%)
+
+_Üretim süresi: 4.8 sn_
+_Toplam çalışma süresi (GitHub Actions): 17 sn_
