@@ -1,0 +1,61 @@
+# AH özeti — 22.11.2026 00:20 (ev 113, PvP Horde)
+
+Ayrıntı: `reports/` içindeki own_goods / crafting / disenchant / vendor_snipe raporları. ⚠️ = şüpheli fırsat kuralı, 🐢 = satış < 5/gün (bölge) → önce 1-2 tane ile test et.
+
+## 1. Veri sağlığı
+- items: Sat, 21 Nov 2026 20:23:32 GMT (1.0 sa önce, 192885 ilan) · commodities: Sat, 21 Nov 2026 20:23:32 GMT (1.0 sa önce, 156819 ilan) · tsm_realm: veri 6.0 sa önce, son indirme 19:21 UTC (HTTP 200) · tsm_region: veri 45.0 sa önce, son indirme 20:21 UTC (HTTP 200)
+- ✅ sorun yok
+
+## 3. Fiyat alarmı
+Kriter: bölge satış ≥ 20/gün ve en düşük fiyat ≤ kendi 7 günlük medyanının %70'i.
+
+| Item | Şu an | 7g medyan | Fark | Ucuz adet | Önerilen en fazla | Uyarı |
+|---|---|---|---|---|---|---|
+| Shellfish | 1s 0c | 12s 13c | -92% | 2694 | 2694 adet (26g 94s 0c) | AH'de aşırı arz (2845 adet ≈ 5 günlük bölge satışı); → önce 1-2 tane ile test et |
+| Mathystral Amulet Fragment | 1s 5c | 12s 48c | -92% | 47 | 47 adet (49s 35c) |  |
+| Waylaid Crate: Journeyman Ore | 10c | 1s 15c | -91% | 802 | 802 adet (80s 20c) | AH'de aşırı arz (1354 adet ≈ 6 günlük bölge satışı); → önce 1-2 tane ile test et |
+| Black Diamond | 8c | 58c | -86% | 2288 | 2288 adet (1g 83s 4c) | AH'de aşırı arz (3159 adet ≈ 18 günlük bölge satışı); → önce 1-2 tane ile test et |
+| Scroll: KWYJIBO | 15c | 1s 0c | -85% | 82 | 82 adet (12s 30c) |  |
+| Waylaid Crate: Artisan Curiosities | 22c | 1s 38c | -84% | 326 | 326 adet (71s 72c) | AH'de aşırı arz (1721 adet ≈ 19 günlük bölge satışı); → önce 1-2 tane ile test et |
+| Bloodbelly Fish | 9s 86c | 58s 0c | -83% | 1023 | 1023 adet (100g 86s 78c) | AH'de aşırı arz (1023 adet ≈ 42 günlük bölge satışı); → önce 1-2 tane ile test et |
+| Scroll: CWAL | 19c | 1s 0c | -81% | 225 | 225 adet (42s 75c) | AH'de aşırı arz (256 adet ≈ 5 günlük bölge satışı); → önce 1-2 tane ile test et |
+| Waylaid Crate: Apprentice Curiosities | 38c | 1s 98c | -81% | 288 | 288 adet (1g 9s 44c) | AH'de aşırı arz (715 adet ≈ 4 günlük bölge satışı); → önce 1-2 tane ile test et |
+| Smooth Pebble | 4c | 20c | -80% | 43 | 43 adet (1s 72c) |  |
+
+(1 aday için yeterli geçmiş yok.)
+
+## 4. Satış zamanlaması
+| Item | En yüksek (yerel saat) | En düşük | Fark |
+|---|---|---|---|
+| Thorium Headed Arrow | 00–03 | 21–24 | %266 |
+| Exploding Shot | 09–12 | 00–03 | %158 |
+| Hi-Impact Mithril Slugs | 00–03 | 15–18 | %135 |
+| Mithril Gyro-Shot | 09–12 | 21–24 | %82 |
+| Rough Stone | 15–18 | 00–03 | %69 |
+| Jagged Arrow | 09–12 | 06–09 | %57 |
+| Feathered Arrow | 06–09 | 00–03 | %54 |
+| Runecloth | 09–12 | 21–24 | %36 |
+| Light Leather | 15–18 | 00–03 | %36 |
+| Wool Cloth | 15–18 | 00–03 | %31 |
+
+## 5. Forever'a özel item'lar (son 24 saatte en çok değişen 5)
+Tanım SEZGİSEL: item ID ≥ 200000 (Classic'te olmayan yeni item'lar). Fiyat = adet ağırlıklı alt %10 (en ucuz tek ilandan daha sağlam); en az 5 ilanı olanlar.
+| Item | Önce | Şimdi | Değişim | Aralık | Satış/gün | Uyarı |
+|---|---|---|---|---|---|---|
+| Craftsman's Writ: Radiant Belt | 1s 7c | 5g 45s 0c | +50835% | 20 sa | 1.824 🐢 | ⚠️ piyasa sıfırlama (reset) şüphesi: > 3× referans 12s 91c (önceki snapshot 5g 95s 0c, 7g medyan 8s 0c, TSM marketValue 12s 76c, TSM avgSalePrice 13s 6c) |
+| Seasonal Fish Steaks | 2s 43c | 1g 0s 0c | +4015% | 20 sa | 36.314 | ⚠️ piyasa sıfırlama (reset) şüphesi: > 3× referans 8s 24c (önceki snapshot 1g 0s 0c, 7g medyan 5s 1c, TSM marketValue 11s 46c, TSM avgSalePrice 2s 26c) |
+| Nutritious Slime Sludge | 2c | 80c | +3900% | 20 sa | 13.572 | ⚠️ piyasa sıfırlama (reset) şüphesi: > 3× referans 18c (önceki snapshot 80c, 7g medyan 20c, TSM marketValue 15c, TSM avgSalePrice 10c) |
+| item 279537 | 4s 98c | 1g 19s 99c | +2309% | 20 sa | 5.892 | ⚠️ piyasa sıfırlama (reset) şüphesi: > 3× referans 13s 54c (önceki snapshot 1g 19s 99c, 7g medyan 10s 0c, TSM marketValue 17s 9c, TSM avgSalePrice 7s 99c) |
+| Pattern: Filigreed Silky Circlet | 8s 50c | 1g 88s 0c | +2112% | 20 sa | 5.468 | ⚠️ piyasa sıfırlama (reset) şüphesi: > 3× referans 14s 8c (önceki snapshot 1g 89s 0c, 7g medyan 12s 0c, TSM marketValue 15s 16c, TSM avgSalePrice 12s 99c) |
+
+## 6. Önceki rapora göre değişiklikler
+- 🔔 yeni alarm: Waylaid Crate: Journeyman Ore
+- 🔔 yeni alarm: Scroll: CWAL
+- 🔔 yeni alarm: Waylaid Crate: Apprentice Curiosities
+- 🔕 alarm kalktı: Waylaid Crate: Flowering Expert Herbs
+- 🔕 alarm kalktı: Lightning Eel
+- 🔕 alarm kalktı: Waylaid Crate: Expert Ore
+- 📈📉 Scroll: KWYJIBO: 20c → 15c (-25%)
+
+_Üretim süresi: 5.5 sn_
+_Toplam çalışma süresi (GitHub Actions): 27 sn_
