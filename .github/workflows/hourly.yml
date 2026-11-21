@@ -1,6 +1,6 @@
 # Saatlik AH veri toplama (EU Forever, PvP Horde, ev 113) — kişisel veri YOK (AHBOT_PUBLIC=1).
 # Kalıcılık: ahbot.sqlite → actions/cache (gzip); boşsa "seed" Release dosyası.
-# Çıktılar (analyst.sqlite, latest.md, hourly/, günlük özetler) → orphan "data" dalı, her çalışmada tek commit (force-push).
+# Çıktılar (analyst.sqlite.gz, latest.md, hourly/, günlük özetler) → orphan "data" dalı, her çalışmada tek commit (force-push).
 #
 name: hourly
 
@@ -77,7 +77,11 @@ jobs:
       - name: data dalına yayınla
         run: |
           mkdir -p _out/data _out/reports
-          cp data/analyst.sqlite data/analyst_schema.md data/hourly_state.json _out/data/
+          # analyst.sqlite ham hali GitHub'ın 100 MiB dosya sınırını aştı (21.11) → gzip -9 ile .gz olarak yayınlanır.
+          gzip -9 -c data/analyst.sqlite > _out/data/analyst.sqlite.gz
+          ls -l data/analyst.sqlite _out/data/analyst.sqlite.gz
+          if [ "$(stat -c%s _out/data/analyst.sqlite.gz)" -gt 94371840 ]; then echo "::error::analyst.sqlite.gz 90 MiB'ı aştı"; exit 1; fi
+          cp data/analyst_schema.md data/hourly_state.json _out/data/
           cp -r data/summary _out/data/
           cp reports/latest.md _out/reports/
           cp -r reports/hourly _out/reports/
