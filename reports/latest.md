@@ -1,0 +1,62 @@
+# AH özeti — 28.11.2026 19:31 (ev 113, PvP Horde)
+
+Ayrıntı: `reports/` içindeki own_goods / crafting / disenchant / vendor_snipe raporları. ⚠️ = şüpheli fırsat kuralı, 🐢 = satış < 5/gün (bölge) → önce 1-2 tane ile test et.
+
+## 1. Veri sağlığı
+- items: Sat, 28 Nov 2026 16:22:37 GMT (0.1 sa önce, 213560 ilan) · commodities: Sat, 28 Nov 2026 16:22:37 GMT (0.1 sa önce, 154725 ilan) · tsm_realm: veri 4.2 sa önce, son indirme 16:31 UTC (HTTP 200) · tsm_region: veri 2.6 gün önce, son indirme 23:31 UTC (HTTP 200)
+- ✅ sorun yok
+
+## 3. Fiyat alarmı
+Kriter: bölge satış ≥ 20/gün ve en düşük fiyat ≤ kendi 7 günlük medyanının %70'i.
+
+| Item | Şu an | 7g medyan | Fark | Ucuz adet | Önerilen en fazla | Uyarı |
+|---|---|---|---|---|---|---|
+| Okra | 6c | 32c | -81% | 35 | 35 adet (2s 10c) |  |
+| Smooth Pebble | 7c | 29c | -76% | 108 | 108 adet (7s 56c) |  |
+| Powerful Anti-Venom | 6s 99c | 15s 0c | -53% | 475 | 475 adet (33g 20s 25c) | AH'de aşırı arz (500 adet ≈ 14 günlük bölge satışı); → önce 1-2 tane ile test et |
+| Warbear Leather | 30s 33c | 63s 28c | -52% | 787 | 787 adet (238g 69s 71c) | AH'de aşırı arz (1360 adet ≈ 9 günlük bölge satışı); → önce 1-2 tane ile test et |
+| Copper Rod | 47c | 97c | -52% | 46 | 46 adet (21s 62c) | AH'de aşırı arz (169 adet ≈ 7 günlük bölge satışı); → önce 1-2 tane ile test et |
+| Darkshore Grouper | 50c | 99c | -49% | 116 | 116 adet (58s 0c) |  |
+| Nightcrawlers | 33c | 65c | -49% | 24 | 24 adet (7s 92c) | AH'de aşırı arz (2305 adet ≈ 8 günlük bölge satışı); → önce 1-2 tane ile test et |
+| Essence of Pain | 18c | 35c | -49% | 245 | 245 adet (44s 10c) | AH'de aşırı arz (403 adet ≈ 7 günlük bölge satışı); → önce 1-2 tane ile test et |
+| Crocolisk Steak | 1s 48c | 2s 69c | -45% | 304 | 304 adet (4g 49s 92c) | AH'de aşırı arz (522 adet ≈ 13 günlük bölge satışı); → önce 1-2 tane ile test et |
+| Maple Seed | 1s 11c | 1s 99c | -44% | 20 | 20 adet (22s 20c) |  |
+
+## 4. Satış zamanlaması
+| Item | En yüksek (yerel saat) | En düşük | Fark |
+|---|---|---|---|
+| Exploding Shot | 09–12 | 00–03 | %107 |
+| Hi-Impact Mithril Slugs | 00–03 | 15–18 | %102 |
+| Feathered Arrow | 06–09 | 21–24 | %77 |
+| Mithril Gyro-Shot | 03–06 | 15–18 | %56 |
+| Jagged Arrow | 09–12 | 06–09 | %42 |
+| Medium Leather | 09–12 | 00–03 | %30 |
+| Thorium Shells | 03–06 | 12–15 | %24 |
+| Runecloth | 12–15 | 00–03 | %23 |
+| Light Leather | 15–18 | 00–03 | %21 |
+| Wool Cloth | 15–18 | 00–03 | %21 |
+
+## 5. Forever'a özel item'lar (son 24 saatte en çok değişen 5)
+Tanım SEZGİSEL: item ID ≥ 200000 (Classic'te olmayan yeni item'lar). Fiyat = adet ağırlıklı alt %10 (en ucuz tek ilandan daha sağlam); en az 5 ilanı olanlar.
+| Item | Önce | Şimdi | Değişim | Aralık | Satış/gün | Uyarı |
+|---|---|---|---|---|---|---|
+| Craftsman's Writ: Gnomish Alarm-O-Bot | 2c | 3s 58c | +17800% | 21 sa | 7.138 |  |
+| Airy Windseeker's Shirt | 8s 0c | 10g 0s 0c | +12400% | 21 sa | 9.072 | ⚠️ piyasa sıfırlama (reset) şüphesi: > 3× referans 30s 36c (önceki snapshot 10g 0s 0c, 7g medyan 8s 0c, TSM marketValue 52s 72c, TSM avgSalePrice 7s 89c) |
+| Craftsman's Writ: Frostsaber Boots | 73c | 80s 98c | +10993% | 21 sa | 5.394 | ⚠️ piyasa sıfırlama (reset) şüphesi: > 3× referans 3s 56c (önceki snapshot 84s 99c, 7g medyan 1s 53c, TSM marketValue 5s 60c, TSM avgSalePrice 1s 44c) |
+| Craftsman's Writ: Goblin Jumper Cables XL | 2c | 69c | +3350% | 21 sa | 5.74 |  |
+| Craftsman's Writ: Crimson Silk Robe | 18c | 4s 79c | +2561% | 21 sa | 7.63 |  |
+
+## 6. Önceki rapora göre değişiklikler
+- 🔔 yeni alarm: Nightcrawlers
+- 🔔 yeni alarm: Maple Seed
+- 🔔 yeni alarm: Crocolisk Steak
+- 🔔 yeni alarm: Warbear Leather
+- 🔔 yeni alarm: Essence of Pain
+- 🔕 alarm kalktı: Waylaid Crate: Expert Textiles
+- 🔕 alarm kalktı: Razor Arrow
+- 🔕 alarm kalktı: Mystery Meat
+- 🔕 alarm kalktı: Moonberry Juice
+- 🔕 alarm kalktı: Minor Mana Potion
+
+_Üretim süresi: 1.7 sn_
+_Toplam çalışma süresi (GitHub Actions): 24 sn_
